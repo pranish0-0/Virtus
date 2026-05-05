@@ -4,22 +4,9 @@ window.addEventListener('load', () => {
     setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 2000);
 });
 
-// ── Countdown (persisted 90 days from first visit) ──
-const STORAGE_KEY = 'virtus_launch_ts';
+// ── Countdown (fixed launch: August 19, 2026) ──
 const pad = n => String(n).padStart(2, '0');
-const now = Date.now();
-let targetTs = localStorage.getItem(STORAGE_KEY);
-if (targetTs) {
-    targetTs = Number(targetTs);
-    if (isNaN(targetTs) || targetTs <= now) {
-        targetTs = now + 90 * 864e5;
-        localStorage.setItem(STORAGE_KEY, String(targetTs));
-    }
-} else {
-    targetTs = now + 90 * 864e5;
-    localStorage.setItem(STORAGE_KEY, String(targetTs));
-}
-const target = new Date(targetTs);
+const target = new Date('2026-08-19T00:00:00');
 
 function tick() {
     const diff = target - Date.now();
@@ -38,18 +25,53 @@ function tick() {
 tick(); setInterval(tick, 1000);
 
 // ── Email form ──
-function submit() {
+// ⚠️ Replace this URL after deploying the worker with: wrangler deploy
+// const WORKER_URL = 'https://virtus-subscribe.<YOUR_SUBDOMAIN>.workers.dev';
+const WORKER_URL = 'https://virtus-subscribe.virtus-engineeringco.workers.dev';
+
+async function submit() {
     const inp = document.getElementById('email');
     const btn = document.getElementById('notify');
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim())) {
+    const emailVal = inp.value.trim();
+
+    // Client-side validation
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
         inp.focus();
         inp.style.background = 'rgba(239,68,68,0.05)';
         setTimeout(() => inp.style.background = '', 700);
         return;
     }
-    btn.textContent = '✓ Done'; btn.disabled = true; inp.disabled = true;
-    document.getElementById('success').classList.add('show');
-    inp.value = '';
+
+    // Loading state
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    inp.disabled = true;
+
+    try {
+        const res = await fetch(WORKER_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: emailVal }),
+        });
+
+        if (!res.ok) {
+            const data = await res.json().catch(() => ({}));
+            throw new Error(data.detail || data.error || 'Subscription failed');
+        }
+
+        // Success
+        btn.textContent = '✓ Done';
+        document.getElementById('success').classList.add('show');
+        inp.value = '';
+    } catch (err) {
+        console.error('Subscribe error:', err);
+        btn.textContent = originalText;
+        btn.disabled = false;
+        inp.disabled = false;
+        inp.style.background = 'rgba(239,68,68,0.05)';
+        setTimeout(() => inp.style.background = '', 1500);
+    }
 }
 document.getElementById('notify').addEventListener('click', submit);
 document.getElementById('email').addEventListener('keydown', e => e.key === 'Enter' && submit());

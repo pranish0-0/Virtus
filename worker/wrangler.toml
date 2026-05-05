@@ -1,0 +1,9 @@
+name = "virtus-subscribe"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Email send binding — requires Email Routing enabled on your domain
+[[send_email]]
+name = "SEND_EMAIL"
+destination_address = "virtus.engineeringco@gmail.com"
