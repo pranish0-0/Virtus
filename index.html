@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtus Engineering Consultancy | Coming Soon</title>
+  <meta name="description"
+    content="Virtus Engineering Consultancy is launching soon. Delivering precise, reliable, and professional engineering solutions." />
+  <meta name="keywords" content="engineering consultancy, structural engineering, consultancy services" />
+  <meta property="og:title" content="Virtus Engineering Consultancy" />
+  <meta property="og:description" content="Launching soon. Engineering meets certainty." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ═══ PRELOADER (Animation 1: Under Maintenance) ═══ -->
+  <div id="preloader">
+    <div class="pre-lottie">
+      <lottie-player src="./Animations/Under Maintenance.json" background="transparent" speed="1.2"
+        style="width:180px;height:180px;" loop autoplay>
+      </lottie-player>
+    </div>
+    <div class="pre-brand">
+      <strong>Virtus</strong>
+      <span>Engineering Consultancy</span>
+    </div>
+    <div class="pre-bar">
+      <div class="pre-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- ═══ PAGE ═══ -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div>
+        <img src="./logo2.png" alt="Virtus Engineering Consultancy" class="logo" />
+        <p style=" color: #6B7280; margin-left: 90px; font-size: 10.5px; margin-top: -16px;">Where Engineering
+          Meets
+          Certainty.
+        <p>
+      </div>
+      <span class="header-badge">Coming Soon</span>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+
+      <!-- LEFT -->
+      <div class="hero-left">
+
+        <div class="pill"><span class="dot"></span>Pre-Launch</div>
+
+        <h1>Coming<br /><em>Soon</em></h1>
+
+        <p class="tagline">Precision. Reliability. Engineering Excellence.</p>
+
+        <p class="desc">
+          Virtus Engineering Consultancy is launching soon. We're building a platform designed to deliver
+          structured,
+          reliable engineering solutions.
+        </p>
+
+        <!-- EMAIL CAPTURE -->
+        <div class="form-wrap">
+          <div class="form-row">
+            <input type="email" id="email" placeholder="Enter your email address" autocomplete="email"
+              aria-label="Email address" />
+            <button id="notify" type="button">Notify Me</button>
+          </div>
+          <p class="form-note">Be the first to know when we launch. No spam, ever.</p>
+          <div id="success" role="status" aria-live="polite">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            You're on the list. We'll reach out soon.
+          </div>
+        </div>
+
+        <!-- COUNTDOWN -->
+        <div class="countdown" aria-label="Launch countdown">
+          <div class="cd">
+            <div class="cd-n" id="cd-d">00</div>
+            <div class="cd-l">Days</div>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd">
+            <div class="cd-n" id="cd-h">00</div>
+            <div class="cd-l">Hrs</div>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd">
+            <div class="cd-n" id="cd-m">00</div>
+            <div class="cd-l">Min</div>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="cd">
+            <div class="cd-n" id="cd-s">00</div>
+            <div class="cd-l">Sec</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT — Animation 2: Crane -->
+      <div class="hero-right">
+        <!-- Blueprint background lines -->
+        <svg class="blueprint" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g stroke="#35A8AD" stroke-width="0.8" fill="none">
+            <circle cx="300" cy="300" r="200" stroke-dasharray="8 6" opacity="0.4">
+              <animate attributeName="r" values="200;210;200" dur="4s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="300" cy="300" r="130" stroke-dasharray="4 8" opacity="0.3" />
+            <line x1="0" y1="300" x2="600" y2="300" opacity="0.3" />
+            <line x1="300" y1="0" x2="300" y2="600" opacity="0.3" />
+            <rect x="150" y="150" width="300" height="300" stroke-dasharray="10 5" opacity="0.2">
+              <animateTransform attributeName="transform" type="rotate" from="0 300 300" to="360 300 300" dur="50s"
+                repeatCount="indefinite" />
+            </rect>
+          </g>
+          <g stroke="#122F3F" stroke-width="0.5" fill="none" opacity="0.15">
+            <line x1="0" y1="150" x2="600" y2="150" />
+            <line x1="0" y1="450" x2="600" y2="450" />
+            <line x1="150" y1="0" x2="150" y2="600" />
+            <line x1="450" y1="0" x2="450" y2="600" />
+          </g>
+        </svg>
+
+        <div style="position:relative;z-index:1;">
+          <div class="orbit"></div>
+          <div class="lottie-card">
+            <lottie-player src="./Animations/Website under construction.json" background="transparent" speed="1"
+              style="width:370px;height:370px;" loop autoplay>
+            </lottie-player>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SERVICES STRIP — Animations 3, 4, 5 -->
+    <section class="services" aria-label="Services Preview">
+
+      <div class="svc-card">
+        <lottie-player src="./Animations/Web Development.json" background="transparent" speed="1"
+          style="width:100px;height:100px;" loop autoplay>
+        </lottie-player>
+        <p class="svc-label">Digital Platform</p>
+        <p class="svc-desc">A modern, structured platform built for engineering-grade performance and
+          reliability.</p>
+      </div>
+
+      <div class="svc-card">
+        <lottie-player src="./Animations/Website under construction.json" background="transparent" speed="1"
+          style="width:100px;height:100px;" loop autoplay>
+        </lottie-player>
+        <p class="svc-label">Under Development</p>
+        <p class="svc-desc">Our team is meticulously designing every layer — from infrastructure to interface.
+        </p>
+      </div>
+
+      <div class="svc-card">
+        <lottie-player src="./Animations/site under construction.json" background="transparent" speed="1"
+          style="width:100px;height:100px;" loop autoplay>
+        </lottie-player>
+        <p class="svc-label">Launching Soon</p>
+        <p class="svc-desc">Precision takes time. We'll be ready soon with solutions built to last.</p>
+      </div>
+
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="divider"></div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p class="footer-copy">&copy; 2026 Virtus Engineering Consultancy. All rights reserved.</p>
+      <a href="mailto:virtus.engineeringco@gmail.com" class="footer-email">virtus.engineeringco@gmail.com</a>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
