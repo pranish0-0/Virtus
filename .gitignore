@@ -1,4 +1,1 @@
 node_modules/
-.worker/
-dist/
-.env
